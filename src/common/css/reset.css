@@ -1,0 +1,19 @@
+body,p,h1,h2,h3,h4,h5,h6,dl,dd,dt,ul,li,ol{
+  margin: 0;padding: 0;
+  box-sizing: border-box;
+}
+ul,li,ol{
+  list-style: none;
+}
+a{text-decoration: none};
+img{
+  display: block;
+}
+html,body{
+  font-family: "微软雅黑";
+  height: 100%;
+  color: #333;
+  position: relative;
+  font-size: 0.14rem;
+  /*overflow: hidden;*/
+}
