@@ -1,0 +1,144 @@
+{
+    "data": {
+        "balance": 0,
+        "couponSize": 0,
+        "floatingIcon": {
+            "imgUrl": "http://img.dmall.com/common/1a0cb91b-f2c4-4d90-87f0-7176f01b8ece",
+            "status": 1,
+            "url": "https://act.dmall.com/static/project/newSign/index.html?dmfrom=wx&from=center"
+        },
+        "growth": 0,
+        "level": 0,
+        "levelName": "普通会员",
+        "notices": [{
+            "content": "物美会员升级，点击了解更多升级福利！",
+            "created": 1482241153000,
+            "creator": "",
+            "id": 8,
+            "modified": 1482242216000,
+            "modifier": "",
+            "title": "【会员中心】-开启会员公告",
+            "url": "https://a.dmall.com/act/dkADIWKUM8405vgr.html",
+            "yn": 1
+        }],
+        "point": 0,
+        "welfares": [{
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?13_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 13,
+                "logo": "http://wumart.b0.upaiyun.com/new_user_enable.png",
+                "name": "新手特权",
+                "receiveStatus": 0
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?15_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 15,
+                "logo": "http://wumart.b0.upaiyun.com/wumart_enable.png",
+                "name": "物美特惠",
+                "receiveStatus": 0
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?16_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 16,
+                "logo": "http://wumart.b0.upaiyun.com/point_promotion_enable_icon@3x.png",
+                "name": "积分加价购",
+                "receiveStatus": 0
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?3_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 3,
+                "logo": "http://wumart.b0.upaiyun.com/birthday_enable.png",
+                "name": "生日特权",
+                "receiveStatus": 3
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?14_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 14,
+                "logo": "http://wumart.b0.upaiyun.com/order_rating_disabled.png",
+                "name": "评论奖励",
+                "receiveStatus": 4
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?5_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 5,
+                "logo": "http://wumart.b0.upaiyun.com/one_disable_icon@3x.png",
+                "name": "1分钱试吃",
+                "receiveStatus": 4
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?9_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 9,
+                "logo": "http://wumart.b0.upaiyun.com/salon_disabled.png",
+                "name": "活动尊享",
+                "receiveStatus": 4
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?7_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 7,
+                "logo": "http://wumart.b0.upaiyun.com/100days_disabled.png",
+                "name": "百天礼包",
+                "receiveStatus": 4
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?8_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 8,
+                "logo": "http://wumart.b0.upaiyun.com/upgrade_disabled.png",
+                "name": "专享礼包",
+                "receiveStatus": 4
+            },
+            {
+                "activityUrl": "https://act.dmall.com/static/project/vipWelfare/vipWelfare.html?17_31441059&dmallShowCardAction=0&dmfrom=wx",
+                "configWelfareId": 17,
+                "logo": "http://wumart.b0.upaiyun.com/years_disable_icon@3x.png",
+                "name": "周年礼包",
+                "receiveStatus": 4
+            }
+        ]
+    },
+    "errCode": "0000",
+    "errMsg": "",
+    "inte": [{
+            "name": "余额",
+            "nanber": "￥0"
+        },
+        {
+            "name": "积分",
+            "nanber": "0"
+        },
+        {
+            "name": "成长值",
+            "nanber": "0"
+        },
+        {
+            "name": "优惠劵",
+            "nanber": "0"
+        }
+    ],
+    "nva": [{
+            "name": "新手特权",
+            "logo": "http://wumart.b0.upaiyun.com/new_user_enable.png"
+        },
+        {
+            "name": "物美特惠",
+            "logo": "http://wumart.b0.upaiyun.com/wumart_enable.png"
+        },
+        {
+            "name": "积分加价购",
+            "logo": "http://wumart.b0.upaiyun.com/point_promotion_enable_icon@3x.png"
+        },
+        {
+            "name": "生日特权",
+            "logo": "http://wumart.b0.upaiyun.com/birthday_enable.png"
+        },
+        {
+            "name": "全部效益",
+            "logo": "https://i.dmall.com/kayak-project/active/html/dist/image/more-rights.png"
+        }
+    ],
+    "notice": {
+        "not1": "会员公告",
+        "not2": "物美会员升级，点击了解更多升级福利！"
+    },
+    "dre": "https://img.dmallcdn.com//dshop/201705/680e314b-349b-4d74-b5f0-bbee270fb1ff",
+    "pay": "https://img.dmall.com/dshop/201705/33806e8c-a7ee-47e6-a901-1fd65e2bd562",
+    "vitalr": "https://img.dmallcdn.com//dshop/201705/1e202cc5-017a-4ee3-9ffa-7503a42f4494"
+}

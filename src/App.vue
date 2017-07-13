@@ -22,4 +22,10 @@ export default {
 margin:0;
 padding:0;
 }
+html{
+  background-color: #f6f6f6;
+}
+li{
+  background-color: white;
+}
 </style>

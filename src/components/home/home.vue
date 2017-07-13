@@ -47,10 +47,10 @@ export default{
 }
 </script>
 <style scoped>
-.home-head{height:0.44rem;display: flex;align-items:center;justify-content:space-between;padding:0 0.2rem;}
+.home-head{height:0.44rem;display: flex;align-items:center;justify-content:space-between;padding:0 0.2rem;background-color: white;}
 .home-head .home-head-fr i{font-size:0.25rem}
 .home-head .home-head-fl i{font-size:0.14rem}
 .active{color:red}
-.list{display: flex;align-items:center;height:0.4rem;}
+.list{display: flex;align-items:center;height:0.4rem;background-color: white;}
 .list li {margin:0 0.1rem}
 </style>

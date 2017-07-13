@@ -39,7 +39,7 @@
 </script>
 
 <style>
-.footer{height:0.5rem;background:#fff;position:absolute;left:0;right:0;bottom:0;border-top:1px solid #ccc;}
+.footer{height:0.5rem;background:#fff;position:absolute;left:0;right:0;bottom:0;border-top:1px solid #ccc;background-color: white;}
 .footer ul {display:flex;width:100%;align-items: center;height:0.5rem}
 .footer ul li{width:33.33%;text-align:center;font-size:0.14rem;}
 .footer ul li i{font-size:0.2rem}

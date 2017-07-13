@@ -6,7 +6,7 @@
                   <ul>
                         <li v-for="item in boxlist1">
                               <a :href="item.resource">
-                                    <img :src="item.imageUrl">
+                                    <img v-lazy="item.imageUrl">
                                     <p>{{ item.remark }}</p>
                               </a>
                         </li>
@@ -14,7 +14,7 @@
                   <ul>
                         <li v-for="item in boxlist2">
                               <a :href="item.resource">
-                                    <img :src="item.imageUrl">
+                                    <img v-lazy="item.imageUrl">
                                     <p>{{ item.remark }}</p>
                               </a>
                         </li>
@@ -38,7 +38,7 @@
             </div>
       
             <div class="nine_img">
-                  <img v-for="item in jianhuo" :src="item.imageUrl"/>
+                  <img v-for="item in jianhuo" :src="item.imageUrl" />
             </div>
       
             <div class="jxhc">
@@ -49,202 +49,49 @@
       
                   <li v-for="item in siximg">
                         <div class="sixImg_img">
-                              <img :src="item.imageUrl" />
+                              <img v-lazy="item.imageUrl" />
+                              <img src="https://img.dmallcdn.com/cornerMarkV3/11/1_360x360H" v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'" style="position:absolute; z-index:10;left:0;top:0;" />
                         </div>
                         <div class="sixImg_youh">
-                              <span>特价</span>
-                              <span>买1赠1</span>
+                              <span v-if="item.data.promotionDisplayLable=='特价'">特价</span>
+                              <span v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'">买1赠1</span>
                         </div>
                         <div class="sixImg_goods_name">
-                              优选加我蓝莓125g啊山东黄金阿萨德拉速度
+                              {{ item.data.name }}
                         </div>
                         <div class="sixImg_goods_money">
-                              <span>$22.5</span>
+                              <span>￥{{(item.data.price/100).toFixed(2)}}</span>
                               <br>
-                              <span>$16.60</span>
+                              <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
                         </div>
                         <p>+</p>
       
                   </li>
-                  
       
             </ul>
       
             <div class="ul_common">
-                  <div class="ul_common_head">
-                        <img src="https://img.dmallcdn.com/mIndex/201707/86b93d7f-4ef7-478d-adb3-8b7087d7e708_750H" />
-                        <img src="https://img.dmallcdn.com/mIndex/201707/86b93d7f-4ef7-478d-adb3-8b7087d7e708_750H">
+                  <div class="ul_common_head" v-for="item in twoimg">
+                        <img v-lazy="item.imageUrl">
                   </div>
       
                   <ul class="sixImg">
-      
-                        <li>
+                        <li v-for="item in nineimg">
                               <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
+                                    <img :src="item.imageUrl" />
+                                    <img src="https://img.dmallcdn.com/cornerMarkV3/11/1_360x360H" v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'" style="position:absolute; z-index:10;left:0;top:0;" />
                               </div>
                               <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
+                                    <span v-if="item.data.promotionDisplayLable=='特价'">特价</span>
+                                    <span v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'">买1赠1</span>
                               </div>
                               <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
+                                    {{ item.data.name }}
                               </div>
                               <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
+                                    <span>￥{{(item.data.price/100).toFixed(2)}}</span>
                                     <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
+                                    <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
                               </div>
                               <p>+</p>
       
@@ -252,188 +99,71 @@
       
                   </ul>
             </div>
-      
+            
             <div class="ul_common">
-                  <div class="ul_common_head">
-                        <img src="https://img.dmallcdn.com/mIndex/201707/86b93d7f-4ef7-478d-adb3-8b7087d7e708_750H" />
-                        <img src="https://img.dmallcdn.com/mIndex/201707/86b93d7f-4ef7-478d-adb3-8b7087d7e708_750H">
+                  <div class="ul_common_head" v-for="item in twoimg1">
+                        <img v-lazy="item.imageUrl">
                   </div>
       
                   <ul class="sixImg">
-      
-                        <li>
+                        <li v-for="item in nineimg1">
                               <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
+                                    <img v-lazy="item.imageUrl" />
+                                    <img src="https://img.dmallcdn.com/cornerMarkV3/11/1_360x360H" v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'" style="position:absolute; z-index:10;left:0;top:0;" />
                               </div>
                               <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
+                                    <span v-if="item.data.promotionDisplayLable=='特价'">特价</span>
+                                    <span v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'">买1赠1</span>
                               </div>
                               <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
+                                    {{ item.data.name }}
                               </div>
                               <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
+                                    <span>￥{{(item.data.price/100).toFixed(2)}}</span>
                                     <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
-                              </div>
-                              <p>+</p>
-      
-                        </li>
-                        <li>
-                              <div class="sixImg_img">
-                                    <img src="https://img.dmallcdn.com/20161109/7afb6ee0-8988-4f4a-9d93-33d2d87acfc1_360x360H" />
-                              </div>
-                              <div class="sixImg_youh">
-                                    <span>特价</span>
-                                    <span>买1赠1</span>
-                              </div>
-                              <div class="sixImg_goods_name">
-                                    优选加我蓝莓125g啊山东黄金阿萨德拉速度
-                              </div>
-                              <div class="sixImg_goods_money">
-                                    <span>$22.5</span>
-                                    <br>
-                                    <span>$16.60</span>
+                                    <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
                               </div>
                               <p>+</p>
       
                         </li>
       
                   </ul>
+            </div>
+
+            <div class="ul_common">
+                  <div class="ul_common_head" v-for="item in twoimg2">
+                        <img v-lazy="item.imageUrl">
+                  </div>
+      
+                  <ul class="sixImg">
+                        <li v-for="item in nineimg2">
+                              <div class="sixImg_img">
+                                    <img v-lazy="item.imageUrl" />
+                                    <img src="https://img.dmallcdn.com/cornerMarkV3/11/1_360x360H" v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'" style="position:absolute; z-index:10;left:0;top:0;" />
+                              </div>
+                              <div class="sixImg_youh">
+                                    <span v-if="item.data.promotionDisplayLable=='特价'">特价</span>
+                                    <span v-if="item.data.promotionList.length>1 || item.data.promotionDisplayLable=='买1赠1'">买1赠1</span>
+                              </div>
+                              <div class="sixImg_goods_name">
+                                    {{ item.data.name }}
+                              </div>
+                              <div class="sixImg_goods_money">
+                                    <span>￥{{(item.data.price/100).toFixed(2)}}</span>
+                                    <br>
+                                    <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
+                              </div>
+                              <p>+</p>
+      
+                        </li>
+      
+                  </ul>
+            </div>
+            
+
+
+            <div id="mob">
+                  <img src="//img.dmall.com/mIndex/201603/c076c74f-6dc9-4c5f-a7e4-eccd748abb40"/>
             </div>
       </div>
 </template>
@@ -447,13 +177,19 @@ export default {
       data() {
             return {
                   list: [],
-                  list1:"",
-                  boxlist1:[],
-                  boxlist2:[],
-                  zhoumo:"",
-                  jianhuo:[],
-                  danpin:"",
-                  siximg:[]
+                  list1: "",
+                  boxlist1: [],
+                  boxlist2: [],
+                  zhoumo: "",
+                  jianhuo: [],
+                  danpin: "",
+                  siximg: [],
+                  nineimg:[],
+                  twoimg: [],
+                  twoimg1:[],
+                  nineimg1:[],
+                  twoimg2:[],
+                  nineimg2:[],
             }
       },
       methods: {
@@ -467,33 +203,48 @@ export default {
                         // console.log(res.body.data.pageModules[2].dataList);
                         // 10张图片列表
                         this.boxlist1 = res.body.data.pageModules[2].dataList;
-                        this.boxlist2 =  res.body.data.pageModules[3].dataList;
+                        this.boxlist2 = res.body.data.pageModules[3].dataList;
 
                         // 10张下面
                         // console.log(res.body.data.pageModules)
                         // this.zhoumo = res.body.data.pageModules[4].bgImgUrl
                         // 件货
                         // this.jianhuo.push(res.body.data.pageModules[7].dataList[0]);
-                        for(var i in res.body.data.pageModules[7].dataList){
+                        for (var i in res.body.data.pageModules[7].dataList) {
                               this.jianhuo.push(res.body.data.pageModules[7].dataList[i])
                         }
-                        for(var i in res.body.data.pageModules[8].dataList){
+                        for (var i in res.body.data.pageModules[8].dataList) {
                               this.jianhuo.push(res.body.data.pageModules[8].dataList[i])
                         }
-                        for(var i in res.body.data.pageModules[9].dataList){
+                        for (var i in res.body.data.pageModules[9].dataList) {
                               this.jianhuo.push(res.body.data.pageModules[9].dataList[i])
                         }
-                        console.log(this.jianhuo)
+                        // console.log(this.jianhuo)
                         this.danpin = res.body.data.pageModules[10].dataList[0].imageUrl;
 
-                        this.siximg =  res.body.data.pageModules[10].dataList;
-                        console.log(this.siximg)
+                        this.siximg = res.body.data.pageModules[11].dataList;
+                        // console.log(this.siximg)
+
+                        // console.log( res.body.data.pageModules[12].dataList)
+                        this.twoimg = res.body.data.pageModules[12].dataList
+
+                        // 9img
+                        this.nineimg = res.body.data.pageModules[13].dataList
+                        // console.log(this.nineimg)
+
+                        this.twoimg1 = res.body.data.pageModules[14].dataList
+                        this.nineimg1 = res.body.data.pageModules[15].dataList
+
+                        this.twoimg2 = res.body.data.pageModules[16].dataList
+                        this.nineimg2 = res.body.data.pageModules[17].dataList
+
+                        console.log(res.body.data.pageModules)
                   })
             }
       },
-    created(){
-        this.request()
-    }
+      created() {
+       this.request()
+      }
 
 }
 
@@ -513,12 +264,15 @@ export default {
 
 
 
+
+
 /*nav列表*/
 
 .list-box ul {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      background-color: white;
 }
 
 .list-box ul li {
@@ -526,9 +280,12 @@ export default {
       text-align: center;
       margin: 0.1rem 0;
 }
-.list-box ul li img{
+
+.list-box ul li img {
       width: 100%;
 }
+
+
 
 
 
@@ -546,18 +303,18 @@ export default {
 
 .jianhuo>img:first-of-type {
       height: 100%;
-      width: 2.07rem;
+      width: 50%;
       float: left;
 }
 
 .jianhuo .jianhuo_right {
-      width: 2.07rem;
+      width: 50%;
       height: 1.22rem;
       float: right;
 }
 
 .weekend_img_two {
-      width: 2.07rem;
+      width: 50%;
       height: 1.21rem;
       float: right;
 }
@@ -578,7 +335,7 @@ export default {
 }
 
 .nine_img img {
-      width: 1.3rem;
+      width: 33%;
       height: 1.656rem;
 }
 
@@ -598,6 +355,7 @@ export default {
 
 .sixImg li {
       float: left;
+      width: 33%;
       height: 2.46rem;
       padding: .1rem .04rem;
       border: 1px solid #f4f4f4;
@@ -650,4 +408,29 @@ export default {
       clear: both;
       padding-top: .2rem;
 }
+
+#mob img{
+      width: 100%;
+      margin-top: .4rem;
+}
+#mob{
+      margin-top: .4rem;
+}
+
+img{
+      -webkit-transition: all 2s;
+      -o-transition: all 2s;
+      transition: all 2s;
+}
+img[lazy=loading] {
+      opacity: 0;
+}
+img[lazy=error] {
+
+}
+img[lazy=loaded] {
+  opacity: 1;
+}
+
+
 </style>
