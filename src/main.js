@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import "./common/css/reset.css";
 import "./font_6w52vv94kmon7b9/iconfont.css";
-
+import store from '../vuex/Vuex'
 
 import "./common/js/adopt.js"
 import resource from "vue-resource";
@@ -24,6 +24,7 @@ Vue.use(lazy, {
 new Vue({
     el: '#app',
     router,
+    store,
     resource,
     template: '<App/>',
     components: { App }

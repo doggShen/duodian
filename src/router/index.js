@@ -10,35 +10,34 @@ Vue.use(VueAwesomeSwiper)
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/home',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/fenlei',
-      name: 'Fenlei',
-      component: Fenlei
-    },
-    {
-      path: '/vip',
-      name: 'Vip',
-      component: Vip
-    },
-    {
-      path: '/car',
-      name: 'Car',
-      component: Car
-    },
-    {
-      path: '/mine',
-      name: 'Mine',
-      component: Mine
-    },
-    {
-      path:"/",
-      redirect:"/home"
-    }
-  ]
+    routes: [{
+            path: '/home',
+            name: 'Home',
+            component: Home
+        },
+        {
+            path: '/fenlei',
+            name: 'Fenlei',
+            component: Fenlei
+        },
+        {
+            path: '/vip',
+            name: 'Vip',
+            component: Vip
+        },
+        {
+            path: '/car',
+            name: 'Car',
+            component: Car
+        },
+        {
+            path: '/mine',
+            name: 'Mine',
+            component: Mine
+        },
+        {
+            path: "/",
+            redirect: "/home"
+        }
+    ]
 })

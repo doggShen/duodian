@@ -1,5 +1,5 @@
 <template>
-      <div class="home-con">
+      <div class="home-con" @click="tot">
             <v-swper></v-swper>
             <img :src="list1" style="width:100%;">
             <div class="list-box">
@@ -64,7 +64,7 @@
                               <br>
                               <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
                         </div>
-                        <p>+</p>
+                        <p @click="add(item)">+<ball></ball></p>
       
                   </li>
       
@@ -93,7 +93,7 @@
                                     <br>
                                     <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
                               </div>
-                              <p>+</p>
+                              <p @click="add(item)">+<ball></ball></p>
       
                         </li>
       
@@ -123,7 +123,7 @@
                                     <br>
                                     <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
                               </div>
-                              <p>+</p>
+                              <p @click="add(item)">+<ball></ball></p>
       
                         </li>
       
@@ -153,7 +153,7 @@
                                     <br>
                                     <span>￥{{(item.data.promotionPrice/100).toFixed(2)}}</span>
                               </div>
-                              <p>+</p>
+                              <p  @click="add(item)">+<ball></ball></p>
       
                         </li>
       
@@ -165,14 +165,21 @@
             <div id="mob">
                   <img src="//img.dmall.com/mIndex/201603/c076c74f-6dc9-4c5f-a7e4-eccd748abb40"/>
             </div>
+
+            <v-search></v-search>
+            
       </div>
 </template>
 
 <script>
 import Swper from "../swper";
+import search from "../../components/search/search";
+import ball from "../ball/checkgood2"
 export default {
       components: {
-            "v-swper": Swper
+            "v-swper": Swper,
+            "v-search":search,
+            "ball":ball
       },
       data() {
             return {
@@ -189,7 +196,7 @@ export default {
                   twoimg1:[],
                   nineimg1:[],
                   twoimg2:[],
-                  nineimg2:[],
+                  nineimg2:[]
             }
       },
       methods: {
@@ -238,12 +245,30 @@ export default {
                         this.twoimg2 = res.body.data.pageModules[16].dataList
                         this.nineimg2 = res.body.data.pageModules[17].dataList
 
-                        console.log(res.body.data.pageModules)
+                        // console.log(res.body.data.pageModules)
                   })
+            },
+            add(item){
+                  console.log(item.data)
+                  this.$store.commit('addList', item)
+            },
+            tot(){
+                  var totl = this.$store.state.obj;
+                  // console.log(totl[100255532])
+                  this.$store.state.totlMoney=0;
+                  this.$store.state.totlcount = 0;
+                  for(var i in totl){
+                        console.log(totl[i]);
+                        console.log(totl[i].count);
+                        this.$store.state.totlcount+=totl[i].count;
+                        this.$store.state.totlMoney += (totl[i].data.promotionPrice/100)*totl[i].count;
+                  }
+                  // this.$store.commit("totl")
+                  return this.$store.state.totlMoney;
             }
       },
       created() {
-       this.request()
+      this.request()
       }
 
 }

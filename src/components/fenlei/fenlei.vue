@@ -3,7 +3,7 @@
         <div class="header">
             <div>多点超市</div>
             <span>
-                <img src="../../../src/common/img/fdj.png" />
+                <img src="../../../src/common/img/fdj.png" @click="showFn()" />
             </span>
             <span>
                 <img src="../../../src/common/img/ld.png" />
@@ -51,7 +51,7 @@
     
                 </div>
     
-                <p>+</p>
+                <p @click="add(item)">+</p>
     
             </li>
     
@@ -68,12 +68,15 @@
                 <li v-for="(item, index) in listr" @click="right(index,item)" :class="{active : rightIndex == index}">{{ item.catName }}</li>
             </ul>
         </div>
-    
+        <v-search></v-search>
     </div>
 </template>
 <script>
+import search from "../../components/search/search";
 export default {
-
+    components: {
+        'v-search': search
+    },
     data() {
 
         return {
@@ -90,6 +93,9 @@ export default {
 
     },
     methods: {
+        showFn() {
+            this.$store.commit('porpupFn')
+        },
         request() {
             this.$http.get("../../../static/list.json").then(res => {
                 // console.log(res.body.data.categoryInfo.categorys)
@@ -105,26 +111,39 @@ export default {
         },
         middle(index, item) {
             this.listr = this.listm[index].childCmCategories
-            console.log(item)
+            // console.log(item)
             this.midIndex = index;
         },
         right(index, item) {
             this.flag = !this.flag;
             this.rightIndex = index;
-            console.log(item)
+            // console.log(item)
             this.awdead = item.catName;
             this.listurl()
         },
         listurl() {
-            this.$http.jsonp('https://gatewx.dmall.com/search/result?param=%7B%22keyword%22%3A%22'+this.awdead+'%22%2C%22pairs%22%3A%221-10437%22%2C%22pageNum%22%3A%221%22%2C%22index%22%3A1%2C%22pageSize%22%3A20%7D&token=180DD99790479F6661A7631E63E851E6CCC1220E816FFA5BF9AAE4FEB0983621C91C4E4CDC646F0E4842C6B3BA2EC14BDD5E506DE86092704FFAAA8C5AEEA91DF37A33160A0D9ED37FB12AE98FDA9C3C755C9B6E9D2FD0DBAD0C148B0352D9E55EAD28AC247E0CC4E8B4716430A27F1AB433E93B693163937CB69F046970D15F&source=2&tempid=C7983DF1925000028B468A009BB0185A&pubParam=%7B%7D&_=1499776612193').then(req => {
-                console.log(req.body.data.list);
+            this.$http.jsonp('https://gatewx.dmall.com/search/result?param=%7B%22keyword%22%3A%22' + this.awdead + '%22%2C%22pairs%22%3A%221-10437%22%2C%22pageNum%22%3A%221%22%2C%22index%22%3A1%2C%22pageSize%22%3A20%7D&token=180DD99790479F6661A7631E63E851E6CCC1220E816FFA5BF9AAE4FEB0983621C91C4E4CDC646F0E4842C6B3BA2EC14BDD5E506DE86092704FFAAA8C5AEEA91DF37A33160A0D9ED37FB12AE98FDA9C3C755C9B6E9D2FD0DBAD0C148B0352D9E55EAD28AC247E0CC4E8B4716430A27F1AB433E93B693163937CB69F046970D15F&source=2&tempid=C7983DF1925000028B468A009BB0185A&pubParam=%7B%7D&_=1499776612193').then(req => {
+                // console.log(req.body.data.list);
                 this.fake = req.body.data.list;
             })
         },
-        chg(item){
-            this.awdead =  item.catName;
-            this.listurl()        
-        }
+        chg(item) {
+            this.awdead = item.catName;
+            this.listurl()
+        },
+        add(item) {
+            console.log(item)
+            // this.$store.commit('addList', item)
+        },
+        // tot() {
+        //     var totl = this.$store.state.obj;
+        //     // console.log(totl[100255532])
+        //     this.$store.state.totlMoney = 0;
+        //     for (var i in totl) {
+        //         this.$store.state.totlMoney += (totl[i].data.promotionPrice / 100) * totl[i].count;
+        //     }
+        //     return this.$store.state.totlMoney;
+        // }
     },
     mounted() {
         this.request();

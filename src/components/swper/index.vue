@@ -32,6 +32,7 @@ export default {
        // scrollbar:'.swiper-scrollbar',
        mousewheelControl : true,
        observeParents:true,
+       autoplayDisableOnInteraction : false,
        // if you need use plugins in the swiper, you can config in here like this
        // 如果自行设计了插件，那么插件的一些配置相关参数，也应该出现在这个对象中，如下debugger
        // debugger: true,
@@ -60,6 +61,7 @@ export default {
    request(){
       this.$http.get("../../../static/qqjx.json").then(res => {
             // console.log(res.body.data.pageModules[0].dataList);
+           
             this.lis = res.body.data.pageModules[0].dataList;
       })
    }

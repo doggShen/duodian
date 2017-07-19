@@ -1,6 +1,6 @@
 <template>
   <!--<p>chaoshi</p>-->
-  <div id="container">
+  <div id="container" @click="tot">
       <!--<div class="lun">-->
           <v-swper></v-swper>
       <!--</div>-->
@@ -70,7 +70,7 @@
             <div class="pric">
               <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
               <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-              <p>+</p>
+              <p @click="add(item)"><ball></ball>+</p>
             </div>
         </div>
 
@@ -85,7 +85,7 @@
           <div class="pric">
             <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
             <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-            <p>+</p>
+            <p @click="add(item)"><ball></ball>+</p>
           </div>
         </div>
 
@@ -102,7 +102,7 @@
           <div class="pric">
             <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
             <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-            <p>+</p>
+            <p @click="add(item)">+<ball></ball></p>
           </div>
         </div>
         <p class="clear"></p>
@@ -118,7 +118,7 @@
         <div class="pric">
           <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
           <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-          <p>+</p>
+          <p @click="add(item)">+<ball></ball></p>
         </div>
       </div>
       <p class="clear"></p>
@@ -134,7 +134,7 @@
         <div class="pric">
           <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
           <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-          <p>+</p>
+          <p @click="add(item)">+<ball></ball></p>
         </div>
       </div>
       <p class="clear"></p>
@@ -150,7 +150,7 @@
         <div class="pric">
           <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
           <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-          <p>+</p>
+          <p @click="add(item)">+<ball></ball></p>
         </div>
       </div>
       <p class="clear"></p>
@@ -166,7 +166,7 @@
         <div class="pric">
           <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
           <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-          <p>+</p>
+          <p @click="add(item)">+<ball></ball></p>
         </div>
       </div>
       <p class="clear"></p>
@@ -182,7 +182,7 @@
         <div class="pric">
           <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
           <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-          <p>+</p>
+          <p @click="add(item)">+<ball></ball></p>
         </div>
       </div>
       <p class="clear"></p>
@@ -198,7 +198,7 @@
         <div class="pric">
           <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
           <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-          <p>+</p>
+          <p @click="add(item)">+<ball></ball></p>
         </div>
       </div>
       <p class="clear"></p>
@@ -214,7 +214,7 @@
         <div class="pric">
           <span>￥{{((item.data.price)/100).toFixed(2)}}</span>
           <i>￥{{((item.data.promotionPrice)/100).toFixed(2)}}</i>
-          <p>+</p>
+          <p @click="add(item)">+<ball></ball></p>
         </div>
       </div>
       <p class="clear"></p>
@@ -229,11 +229,12 @@
 
 <script>
 import Swper from "../swper";
-
+import ball from "../ball/checkgood2"
       
 export default {
  data(){
   return {
+    tejia:'',
       gongnengList:[],
       youXuan1:[],
       youXuan2:[],
@@ -257,36 +258,56 @@ export default {
       getData() {
        var $this = this;
        this.$http.get('../../static/ddcs.json').then(function (res) {
-          console.log(res)
+          // console.log(res)
          $this.gongnengList = res.data.data.pageModules[2].dataList;
-         $this.youXuan1 = res.data.data.pageModules[7].dataList;
-         $this.youXuan2 = res.data.data.pageModules[8].dataList;
-         $this.zhutiList = res.data.data.pageModules[4].dataList;
-         $this.shenghuo = res.data.data.pageModules[11].dataList;
-         $this.SH_list = $this.shenghuo.splice(2);
-         $this.shucai = res.data.data.pageModules[13].dataList;
-         $this.shuiguo = res.data.data.pageModules[15].dataList;
-         $this.mike = res.data.data.pageModules[17].dataList;
-         $this.rou = res.data.data.pageModules[19].dataList;
-         $this.zhushi = res.data.data.pageModules[21].dataList;
-         $this.shuichan = res.data.data.pageModules[23].dataList;
-         $this.liangyou = res.data.data.pageModules[25].dataList;
-         $this.jiushui = res.data.data.pageModules[27].dataList;
-         $this.lingshi = res.data.data.pageModules[30].dataList;
-         $this.huli = res.data.data.pageModules[32].dataList;
-         $this.lunbo = res.data.data.pageModules[0].dataList;
+          $this.youXuan1 = res.data.data.pageModules[7].dataList;
+          $this.youXuan2 = res.data.data.pageModules[8].dataList;
+          $this.zhutiList = res.data.data.pageModules[4].dataList;
+          $this.shenghuo = res.data.data.pageModules[11].dataList;
+          $this.SH_list = $this.shenghuo.splice(2);
+          $this.shucai = res.data.data.pageModules[13].dataList;
+          $this.shuiguo = res.data.data.pageModules[15].dataList;
+          $this.mike = res.data.data.pageModules[17].dataList;
+          $this.rou = res.data.data.pageModules[19].dataList;
+          $this.zhushi = res.data.data.pageModules[21].dataList;
+          $this.shuichan = res.data.data.pageModules[23].dataList;
+          $this.liangyou = res.data.data.pageModules[25].dataList;
+          $this.jiushui = res.data.data.pageModules[27].dataList;
+          $this.lingshi = res.data.data.pageModules[30].dataList;
+          $this.huli = res.data.data.pageModules[32].dataList;
+          $this.lunbo = res.data.data.pageModules[0].dataList;
 
-      console.log($this.huli)
+      // console.log($this.huli)
 
 //         console.log($this.mike)
-       })
-     }
+       }
+       )
+     },
+    add(item){
+                  // console.log(item)
+                  this.$store.commit('addList', item)
+            },
+    tot(){
+          var totl = this.$store.state.obj;
+          // console.log(totl[100255532])
+          this.$store.state.totlMoney=0;
+            this.$store.state.totlcount = 0;
+          for(var i in totl){
+                console.log(totl[i])
+                console.log(totl[i].count)
+                this.$store.state.totlcount+=totl[i].count;
+                this.$store.state.totlMoney += (totl[i].data.promotionPrice/100)*totl[i].count;
+          }
+          // this.$store.commit("totl")
+          return this.$store.state.totlMoney;
+    }
   },
   created(){
      this.getData();
   },
   components: {
-        "v-swper": Swper
+        "v-swper": Swper,
+        "ball":ball
   },
 }
 </script>
